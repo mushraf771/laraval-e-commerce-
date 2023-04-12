@@ -1,0 +1,4 @@
+laravel new ecommerace
+
+composer require laravel/jetstream
+php artisan jetstream:install livewire
