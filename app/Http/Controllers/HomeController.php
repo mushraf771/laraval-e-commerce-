@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+// use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,19 +14,28 @@ class HomeController extends Controller
      */
     public function redirect()
     {
-        $user_type=Auth::user()->user_type;
-        if ($user_type == '1') {
-            return view('admin.home');
-        } else {
-            return view('dashboard');
-            
+        if (Auth::check()) {
+            $user_type = Auth::user()->user_type;
+            if ($user_type == '1') {
+                return view('backend.admin.home');
+            } else {
 
+                return view('frontend.admin.welcome');
+            }
+        } else {
+            return to_route('login');
         }
-        
     }
     public function index()
     {
-       return view('welcome');
+        // $categories = category::orderBy('id', 'asc')->where('menu', '1')->where('featured', '1')->take(4)->get();
+        // $cate = Category::with('subcategories')->get();
+        // $category = Category::with('subcategories')->find(1)->limit(4);
+        $categories = Category::with(['subcategories' => function ($query) {
+            $query->take(4);
+        }])->take(4)->get();
+        // dump($categories[0]->subcategories);
+        return view('welcome', compact('categories'));
     }
 
     /**

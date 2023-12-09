@@ -13,41 +13,36 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Styles -->
     @livewireStyles
-
-    {{-- added styles --}}
-    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- end add styles --}}
-
+     <!-- owl carousel css link -->
+     <link rel="stylesheet" href="{{ asset("assets/css/owl.carousel.min.css") }}">
+     <link rel="stylesheet" href="{{ asset("assets/css/owl.theme.default.min.css") }}">
 </head>
 
-<body class="font-sans antialiased">
-
-    <!-- header -->
-    <header class="py-2 shadow-sm bg-white">
-        <div class="container flex items-center justify-between">
-            <a href="index.html">
+<body class=" bg-gray-100" id="demo">
+    <nav class="w-full bg-white  dark:bg-gray-900">
+        <div class="container max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+            <a href="/">
                 <img src="assets/images/logo.svg" alt="Logo" class="w-32">
             </a>
-
-            <div class="w-full max-w-xl relative flex">
-                <span class="absolute left-4 top-3 text-lg text-gray-400">
+            <div class="max-w-sm w-full relative hidden md:flex ">
+                <span class="absolute left-4 top-2 text-lg text-gray-800">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input type="text" name="search" id="search"
-                    class="w-full border border-primary border-r-0 pl-3  pr-3 rounded-l-md focus:outline-none"
+                    class="w-full border border-primary border-r-0 pl-12 py-2 pr-3 rounded-l-md focus:outline-none"
                     placeholder="search">
                 <button
                     class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">Search</button>
             </div>
 
-            <div class="flex  items-center space-x-4 ">
+            <div class="flex  items-center space-x-2 md:space-x-4 ">
                 <a href="#" class="text-center text-gray-700 hover:text-primary transition relative">
                     <div class="text-2xl">
                         <i class="fa-regular fa-heart"></i>
@@ -55,7 +50,7 @@
                     <div class="flex gap-2">
                         <div class="text-xs leading-3">Wishlist</div>
                         <div
-                            class="absolute right-0 -top-1  w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
+                            class="absolute right-0 -top-1  w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
                             8</div>
                     </div>
                 </a>
@@ -76,143 +71,319 @@
                 </a>
             </div>
         </div>
-    </header>
-    <!-- ./header -->
-
-
-    <!-- navbar -->
-    <nav class="bg-gray-800">
-        <div class="container flex">
-            <div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group">
-                <span class="text-white">
-                    <i class="fa-solid fa-bars"></i>
-                </span>
-                <span class="capitalize ml-2 text-white">All Categories</span>
-
-                <!-- dropdown -->
-                <div
-                    class="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">Sofa</span>
-                    </a>
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/terrace.svg" alt="terrace" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">Terarce</span>
-                    </a>
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/bed.svg" alt="bed" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">Bed</span>
-                    </a>
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/office.svg" alt="office" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">office</span>
-                    </a>
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/outdoor-cafe.svg" alt="outdoor" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">Outdoor</span>
-                    </a>
-                    <a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                        <img src="assets/images/icons/bed-2.svg" alt="Mattress" class="w-5 h-5 object-contain">
-                        <span class="ml-6 text-gray-600 text-sm">Mattress</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between flex-grow pl-12">
-                <div class="flex items-center space-x-6 capitalize">
-                    <a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
-                    <a href="pages/shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
-                    <a href="#" class="text-gray-200 hover:text-white transition">About us</a>
-                    <a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
-                </div>
-                <a href="pages/login.html" class="text-gray-200 hover:text-white transition">Login</a>
-            </div>
         </div>
     </nav>
-    <!-- ./navbar -->
+    <!-- /End header -->
+    <section class="">
+        <div id="overlay"></div>
+        <div id="closeBtn" onclick="closeNav()">&times;</div>
+        <div class="sidenav" id="mySidenav">
+            <div class="sidenavHeader">
+                <i class="fas fa-user-circle"> RoyalMad</i>
+            </div>
+            {{-- below side nav header --}}
+            <div class="" id="main-container">
+                <div class="sidenavContentHeader">
+                    Trending
+                </div>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Amazon Music</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Amazon Music</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Amazon Music</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                {{-- end first head --}}
+                <hr />
+                <div class="sidenavContentHeader">
+                    Digital Design and indigo
+                </div>
+                <a href="#" class="" onclick="openPrimeVideo()">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Digital Des</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Amazon Music</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">2nd Last</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                {{-- first container --}}
+                <div class="sidenavContainer" id="firstContainer">
+                    <hr />
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidenavRowDropdown" id="firstDropDown" onclick="firstDropdown()">
+                    <div class="">See All</div>
+                    <i class="fas fa-chevron-down ml-[10px] text-[#8e9090]">
+                    </i>
+                </div>
+                <hr />
+                {{-- end first   --}}
+                <div class="sidenavContentHeader">
+                    Programs and features
+                </div>
+                <a href="#" class="" onclick="openPrimeVideo()">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">GO GO</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Ruby</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                <a href="#" class="">
+                    <div class="sidenavRow">
+                        <div class="sidenavContent">Java</div>
+                        <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                    </div>
+                </a>
+                {{-- second container --}}
+                <div class="sidenavContainer" id="secondContainer">
+                    <hr />
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                    <a href="#" class="">
+                        <div class="sidenavRow">
+                            <div class="sidenavContent">Amazon Music</div>
+                            <i class="fas fa-chevron-right text-[#8e9090]"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="sidenavRowDropdown" id="secondDropDown" onclick="secondDropdown()">
+                    <div class="">See All</div>
+                    <i class="">
+                    </i>
+                </div>
+                <hr />
+                {{-- end second contaainer  --}}
+
+                {{-- Help Features section --}}
+                <div class="sidenavContentHeader">
+                    Help & Settings
+                </div>
+                <a href="" class="">
+                    <div class="sidenavContent">Your Account</div>
+                </a>
+                <a href="" class="">
+                    <div class="sidenavContent">Currency</div>
+                </a>
+                <a href="" class="">
+                    <div class="sidenavContent">Customer Service</div>
+                </a>
+                <a href="" class="">
+                    <div class="sidenavContent">signin</div>
+                </a>
+                <div class="h-52"></div>
+
+            </div>
+            {{-- end main container --}}
+
+            <div id="sub-container">
+                <div id="mainMenu">
+                    <i class="fas fa-chevron-left" style="color:#8e9090;"></i>
+                    Main Menu
+                </div>
+                <hr />
+                <div class="" id="sub-container-content">
+                    {{-- <div class="sidenavContentHeader">Prime Video</div>
+                <a href="" class="">
+                    <div class="sidenavContent">All videos</div>
+                </a> --}}
+                </div>
+            </div>
+        </div>
+        {{-- end side nav contaner --}}
+
+        {{-- not side nav --}}
+    </section>
+    <nav class="  dark:bg-gray-900 dark:border-gray-700 bg-black sticky top-0 z-50">
+        <div
+            class="max-w-screen-xl w-full flex flex-wrap items-center md:justify-start justify-between pl-2 md:pl-0  mx-auto py-2 ">
+            <div class=" flex items-center gap-2 cursor-pointer select-none text-[30px] w-5 text-white"
+                onclick="openNav()">
+                &#9776;
+                <span class="text-sm text-center hidden sm:block">All</span>
+            </div>
+
+            {{-- navlinks --}}
+            <div class=" md:w-auto  md:ml-16" id="menu">
+                <ul
+                    class="flex flex-wrap max-w-sm gap-x-2 p-1 md:p-2 md:font-medium text-sm md md:space-x-4 md:mt-0 md:text-sm  md:border-0">
+                    <li>
+                        <a href="{{ url('category') }}"
+                            class=" hover:text-primary transition-all delay-75 block  text-white rounded md:bg-transparent md:p-0 md:dark:text-white  md:dark:bg-transparent"
+                            aria-current="page">Toda's Deal</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('product') }}"
+                            class=" hover:text-primary transition-all delay-75 block  text-white rounded md:bg-transparent md:p-0 md:dark:text-white  md:dark:bg-transparent"
+                            aria-current="page">Customer Service</a>
+                    </li>
+                    <li>
+                        <a href="href="{{ url('shop') }}""
+                            class=" hover:text-primary transition-all delay-75 block  text-white rounded md:bg-transparent md:p-0 md:dark:text-white  md:dark:bg-transparent"
+                            aria-current="page">Gift Cards</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>  
     <!-- Page Content -->
-    <main>
+    <main class="m-0 p-0 h-auto">
         {{ $slot }}
     </main>
-
     <div class="">
         <!-- footer -->
-        <footer class="bg-white pt-16 pb-12 border-t border-gray-100">
-            <div class="container grid grid-cols-3">
-                <div class="col-span-1 space-y-8">
+        <footer class=" w-full py-16 px-5 border-t border-gray-100">
+            <div class="w-full container  grid grid-col sm:grid-cols-3">
+                <div class=" col-span-1 p-2 ">
                     <img src="assets/images/logo.svg" alt="logo" class="w-30">
                     <div class="mr-2">
-                        <p class="text-gray-500">
+                        <p class="text-gray-600 mb-2 mt-4">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?
                         </p>
                     </div>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                    <div class="flex space-x-6 font-medium ">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all delay-100 text-[30px]"><i
                                 class="fa-brands fa-facebook-square"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all delay-100 text-[30px]"><i
                                 class="fa-brands fa-instagram-square"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-gray-500"><i
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all delay-100 text-[30px]"><i
                                 class="fa-brands fa-twitter-square"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <a href="#" class="text-gray-600 hover:text-primary transition-all delay-100 text-[30px]">
                             <i class="fa-brands fa-github-square"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-span-2 grid grid-cols-2 gap-8">
-                    <div class="grid grid-cols-2 gap-8">
+                <div class="col-span-2 p-4">
+                    <div class=" flex gap-8 flex-wrap justify-between items-center">
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
+                            <h3 class="text-sm font-semibold text-gray-800 uppercase tracking-wider">Solutions</h3>
                             <div class="mt-4 space-y-4">
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Marketing</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Analitycs</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Commerce</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Insights</a>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                            <h3 class="text-sm font-semibold text-gray-800 uppercase tracking-wider">Support</h3>
                             <div class="mt-4 space-y-4">
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Pricing</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API
+                                    class="text-base text-gray-600 hover:text-primary block">Documentation</a>
+                                <a href="#" class="text-base text-gray-600 hover:text-primary block">Guides</a>
+                                <a href="#" class="text-base text-gray-600 hover:text-primary block">API
                                     Status</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-8">
+
+
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
+                            <h3 class="text-sm font-semibold text-gray-800 uppercase tracking-wider">Solutions</h3>
                             <div class="mt-4 space-y-4">
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Marketing</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Marketing</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Analitycs</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Analitycs</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Commerce</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Commerce</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Insights</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Insights</a>
                             </div>
                         </div>
 
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                            <h3 class="text-sm font-semibold text-gray-800 uppercase tracking-wider">Support</h3>
                             <div class="mt-4 space-y-4">
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Pricing</a>
+                                    class="text-base text-gray-600 hover:text-primary block">Pricing</a>
                                 <a href="#"
-                                    class="text-base text-gray-500 hover:text-gray-900 block">Documentation</a>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">Guides</a>
-                                <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">API
+                                    class="text-base text-gray-600 hover:text-primary block">Documentation</a>
+                                <a href="#" class="text-base text-gray-600 hover:text-primary block">Guides</a>
+                                <a href="#" class="text-base text-gray-600 hover:text-primary block">API
                                     Status</a>
                             </div>
                         </div>
@@ -220,12 +391,13 @@
                 </div>
             </div>
         </footer>
+
         <!-- ./footer -->
 
         <!-- copyright -->
         <div class="bg-gray-800 py-4">
             <div class="container flex items-center justify-between">
-                <p class="text-white">&copy; TailCommerce - All Right Reserved</p>
+                <p class="text-white">&copy; ChMushraf Khan &copy; All Right Reserved</p>
                 <div>
                     <img src="assets/images/methods.png" alt="methods" class="h-5">
                 </div>
@@ -233,10 +405,17 @@
         </div>
         <!-- ./copyright -->
     </div>
+    <script  src="{{ asset("assets/js/jquery.min.js") }}"></script>
+    {{-- <script  src="{{ asset("assets/js/extm.js") }}"></script> --}}
+    <script  src="{{ asset("assets/js/extm.min.js") }}"></script>
+    <script  src="{{ asset("assets/js/owl.carousel.min.js") }}"></script>
+    <script  src="{{ asset("assets/js/my.js") }}"></script>
+@yield('script1')
+@yield('script2')
+@stack('modals')
 
-    @stack('modals')
-
-    @livewireScripts
+@stack('script')
+@livewireScripts
 </body>
 
 </html>
